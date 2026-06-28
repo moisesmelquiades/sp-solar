@@ -98,7 +98,7 @@ function Site() {
       }}>
         <div style={{ maxWidth: '1180px', margin: '0 auto', padding: '18px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px' }}>
           <a href="#top" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-            <img src="/images/logo-white.png" alt="S&P Energia Solar" style={{ height: '40px', width: 'auto', display: 'block' }} />
+            <img src="/images/logo-white.png" alt="S&P Energia Solar" style={{ height: '56px', width: 'auto', display: 'block' }} />
           </a>
           <nav className="hidden md:flex" style={{ alignItems: 'center', gap: '38px' }}>
             {[['#diferenciais','Diferenciais'],['#como-funciona','Como funciona'],['#projetos','Projetos'],['#faq','FAQ']].map(([href, label]) => (
