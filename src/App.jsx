@@ -98,7 +98,7 @@ function Site() {
       }}>
         <div style={{ maxWidth: '1180px', margin: '0 auto', padding: '18px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '24px' }}>
           <a href="#top" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-            <img src="/images/logo-white.png" alt="S&P Energia Solar" style={{ height: '56px', width: 'auto', display: 'block' }} />
+            <img src="/images/logo-white.png" alt="S&P Energia Solar" style={{ height: '76px', width: 'auto', display: 'block' }} />
           </a>
           <nav className="hidden md:flex" style={{ alignItems: 'center', gap: '38px' }}>
             {[['#diferenciais','Diferenciais'],['#como-funciona','Como funciona'],['#projetos','Projetos'],['#faq','FAQ']].map(([href, label]) => (
@@ -132,9 +132,9 @@ function Site() {
       <Render config={puckConfig} data={pageData} />
 
       {/* ========== COMO FUNCIONA ========== */}
-      <section id="como-funciona" style={{ background: '#08183D', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
+      <section id="como-funciona" style={{ background: '#08183D', padding: 'clamp(60px,10vw,120px) 0', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', right: '-6%', top: '-10%', width: '460px', height: '460px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(254,176,0,.16) 0%,rgba(254,176,0,0) 68%)', pointerEvents: 'none' }} />
-        <div style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 40px', position: 'relative', zIndex: 2 }}>
+        <div style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 max(20px,4vw)', position: 'relative', zIndex: 2 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
             <span style={{ width: '30px', height: '1px', background: '#FEB000' }} />
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '12px', letterSpacing: '4px', color: '#FEB000', textTransform: 'uppercase' }}>Simples e rápido</span>
@@ -142,7 +142,7 @@ function Site() {
           <h2 style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400, fontSize: 'clamp(38px,4.6vw,58px)', lineHeight: 1.05, color: '#EAF0F8', margin: '0 0 70px', letterSpacing: '-.5px', maxWidth: '640px' }}>
             Como funciona o processo
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '34px' }} className="grid-cols-2 md:grid-cols-4">
+          <div style={{ display: 'grid', gap: '34px' }} className="grid-cols-2 md:grid-cols-4">
             {passos.map(p => (
               <div key={p.num} style={{ borderTop: '1px solid rgba(233,240,250,.16)', paddingTop: '28px', position: 'relative' }}>
                 <span style={{ position: 'absolute', top: '-4px', left: 0, width: '7px', height: '7px', background: '#FEB000', display: 'block' }} />
@@ -161,8 +161,8 @@ function Site() {
       </section>
 
       {/* ========== PROJETOS ========== */}
-      <section id="projetos" style={{ background: '#EEF1F5', padding: '120px 0' }}>
-        <div style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 40px' }}>
+      <section id="projetos" style={{ background: '#EEF1F5', padding: 'clamp(60px,10vw,120px) 0' }}>
+        <div style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 max(20px,4vw)' }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px', marginBottom: '56px' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
@@ -173,7 +173,7 @@ function Site() {
             </div>
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '12px', letterSpacing: '2px', color: '#5B6577', textTransform: 'uppercase' }}>+50 sistemas em PE</span>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px' }} className="grid-cols-2 md:grid-cols-3">
+          <div style={{ display: 'grid', gap: '16px' }} className="grid-cols-2 md:grid-cols-3">
             {projetos.map((pr, i) => (
               <div key={i} style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden', borderRadius: '4px', background: '#d3d9e2' }}>
                 <img
@@ -203,7 +203,7 @@ function Site() {
         <div style={{ position: 'absolute', inset: 0, backgroundImage: "url('/images/banner.png')", backgroundSize: 'cover', backgroundPosition: 'center 40%', opacity: 0.16 }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg,#08183D 0%,rgba(8,24,61,.7) 50%,#08183D 100%)' }} />
         <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', width: '620px', height: '620px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(254,176,0,.22) 0%,rgba(254,176,0,0) 64%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: '820px', margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: '820px', margin: '0 auto', padding: '0 max(20px,4vw)', textAlign: 'center' }}>
           <span style={{ fontFamily: "'Space Mono', monospace", fontSize: '12px', letterSpacing: '4px', color: '#FEB000', textTransform: 'uppercase' }}>Orçamento sem compromisso</span>
           <h2 style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400, fontSize: 'clamp(42px,5.6vw,76px)', lineHeight: 1.03, color: '#EAF0F8', margin: '24px 0 22px', letterSpacing: '-.8px' }}>
             Descubra quanto você pode <span style={{ color: '#FEB000', fontStyle: 'italic' }}>economizar</span>
@@ -220,10 +220,10 @@ function Site() {
 
       {/* ========== FOOTER ========== */}
       <footer style={{ background: '#05122E', padding: '72px 0 36px', borderTop: '1px solid rgba(233,240,250,.1)' }}>
-        <div style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 40px', display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gap: '48px' }} className="grid-cols-1 md:grid-cols-3">
+        <div style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 max(20px,4vw)', display: 'grid', gap: '48px' }} className="grid-cols-1 md:grid-cols-3">
           <div>
             <div style={{ marginBottom: '22px' }}>
-              <img src="/images/logo-white.png" alt="S&P Energia Solar" style={{ height: '48px', width: 'auto', display: 'block' }} />
+              <img src="/images/logo-white.png" alt="S&P Energia Solar" style={{ height: '80px', width: 'auto', display: 'block' }} />
             </div>
             <p style={{ fontFamily: "'Space Mono', monospace", fontSize: '11px', letterSpacing: '1.5px', color: '#FEB000', textTransform: 'uppercase', lineHeight: 1.7, margin: 0, maxWidth: '280px' }}>
               Conectando você a um futuro mais limpo
@@ -246,7 +246,7 @@ function Site() {
             </ul>
           </div>
         </div>
-        <div style={{ maxWidth: '1180px', margin: '48px auto 0', padding: '24px 40px 0', borderTop: '1px solid rgba(233,240,250,.1)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+        <div style={{ maxWidth: '1180px', margin: '48px auto 0', padding: '24px max(20px,4vw) 0', borderTop: '1px solid rgba(233,240,250,.1)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
           <span style={{ fontSize: '12.5px', color: 'rgba(233,240,250,.45)' }}>© {new Date().getFullYear()} S&P Energia Solar. Todos os direitos reservados.</span>
           <span style={{ fontSize: '12.5px', color: 'rgba(233,240,250,.45)' }}>Desenvolvido por <span style={{ color: '#FEB000' }}>Melch Tecnologia</span></span>
         </div>
