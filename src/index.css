@@ -2,21 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Hanken Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-#root {
-  width: 100%;
+::selection {
+  background: #FEB000;
+  color: #08183D;
+}
+
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+@keyframes spGlow {
+  0%, 100% { opacity: .5; transform: scale(1); }
+  50% { opacity: .82; transform: scale(1.12); }
+}
+
+.animate-glow {
+  animation: spGlow 9s ease-in-out infinite;
 }
