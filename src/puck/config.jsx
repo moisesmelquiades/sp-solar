@@ -60,6 +60,7 @@ export const DEFAULT_PUCK_DATA = {
 }
 
 function HeroComponent({ badge, titulo, destaque, subtitulo, botao }) {
+  const parts = titulo.split(destaque)
   return (
     <section className="relative bg-[#0A1628] min-h-screen flex items-center pt-20">
       <div className="absolute inset-0 bg-gradient-to-br from-[#1B4FBF]/40 to-transparent" />
@@ -67,7 +68,7 @@ function HeroComponent({ badge, titulo, destaque, subtitulo, botao }) {
         <div>
           <p className="text-[#F5A623] font-semibold tracking-widest text-sm uppercase mb-4">{badge}</p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-            {titulo.replace(destaque, '')} <span className="text-[#F5A623]">{destaque}</span> {titulo.split(destaque)[1]}
+            {parts[0]}<span className="text-[#F5A623]">{destaque}</span>{parts[1]}
           </h1>
           <p className="text-gray-300 text-lg mb-8 leading-relaxed">{subtitulo}</p>
           <a href={WA_BASE} target="_blank" rel="noreferrer"
@@ -75,8 +76,8 @@ function HeroComponent({ badge, titulo, destaque, subtitulo, botao }) {
             💬 {botao}
           </a>
         </div>
-        <div className="flex justify-center">
-          <img src="/images/logo.png" alt="S&P Energia Solar" className="w-64 md:w-80 drop-shadow-2xl" />
+        <div className="hidden md:block rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/10">
+          <img src="/images/proj1.jpg" alt="Projeto S&P Solar" className="w-full h-96 object-cover" />
         </div>
       </div>
     </section>

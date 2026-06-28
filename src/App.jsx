@@ -71,7 +71,9 @@ function Site() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A1628]/95 backdrop-blur-sm shadow-lg">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <img src="/images/logo-white.png" alt="S&P Energia Solar" className="h-12 w-auto" />
+          <div className="bg-white rounded-xl px-2 py-1">
+            <img src="/images/logo.png" alt="S&P Energia Solar" className="h-10 w-auto" />
+          </div>
           <nav className="hidden md:flex items-center gap-6 text-white text-sm font-medium">
             <a href="#diferenciais" className="hover:text-[#F5A623] transition-colors">Diferenciais</a>
             <a href="#como-funciona" className="hover:text-[#F5A623] transition-colors">Como Funciona</a>
@@ -85,11 +87,11 @@ function Site() {
           <button className="md:hidden text-white text-2xl" onClick={() => setMenuOpen(!menuOpen)}>☰</button>
         </div>
         {menuOpen && (
-          <div className="md:hidden bg-[#0A1628] px-4 pb-4 flex flex-col gap-3 text-white text-sm font-medium">
-            <a href="#diferenciais" onClick={() => setMenuOpen(false)}>Diferenciais</a>
-            <a href="#como-funciona" onClick={() => setMenuOpen(false)}>Como Funciona</a>
-            <a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a>
-            <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
+          <div className="md:hidden bg-[#0A1628] border-t border-[#1B4FBF]/30 px-4 pb-4 flex flex-col gap-3 text-sm font-medium">
+            <a href="#diferenciais" onClick={() => setMenuOpen(false)} className="text-blue-200 hover:text-white pt-3">Diferenciais</a>
+            <a href="#como-funciona" onClick={() => setMenuOpen(false)} className="text-blue-200 hover:text-white">Como Funciona</a>
+            <a href="#projetos" onClick={() => setMenuOpen(false)} className="text-blue-200 hover:text-white">Projetos</a>
+            <a href="#faq" onClick={() => setMenuOpen(false)} className="text-blue-200 hover:text-white">FAQ</a>
             <a href={WA_LINK} target="_blank" rel="noreferrer"
               className="bg-[#F5A623] text-white px-5 py-2 rounded-full font-bold text-center">
               Solicitar Orçamento
@@ -162,31 +164,34 @@ function Site() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black py-10">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-gray-400 text-sm">
+      <footer className="bg-[#0A1628] border-t border-[#1B4FBF]/40 py-12">
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
           <div>
-            <img src="/images/logo-white.png" alt="S&P Energia Solar" className="h-14 mb-3" />
-            <p className="text-gray-500 text-xs">Conectando você a um futuro mais limpo.</p>
+            <div className="bg-white rounded-xl px-3 py-2 inline-block mb-4">
+              <img src="/images/logo.png" alt="S&P Energia Solar" className="h-12 w-auto" />
+            </div>
+            <p className="text-[#F5A623] font-semibold text-xs tracking-wide">CONECTANDO VOCÊ A UM FUTURO MAIS LIMPO</p>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-3">Navegação</h4>
-            <ul className="flex flex-col gap-2">
-              <li><a href="#diferenciais" className="hover:text-[#F5A623] transition-colors">Diferenciais</a></li>
-              <li><a href="#como-funciona" className="hover:text-[#F5A623] transition-colors">Como Funciona</a></li>
-              <li><a href="#projetos" className="hover:text-[#F5A623] transition-colors">Projetos</a></li>
-              <li><a href="#faq" className="hover:text-[#F5A623] transition-colors">FAQ</a></li>
+            <h4 className="text-[#F5A623] font-bold mb-4 uppercase tracking-wider text-xs">Navegação</h4>
+            <ul className="flex flex-col gap-3">
+              <li><a href="#diferenciais" className="text-blue-200 hover:text-white transition-colors">Diferenciais</a></li>
+              <li><a href="#como-funciona" className="text-blue-200 hover:text-white transition-colors">Como Funciona</a></li>
+              <li><a href="#projetos" className="text-blue-200 hover:text-white transition-colors">Projetos</a></li>
+              <li><a href="#faq" className="text-blue-200 hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-3">Contato</h4>
-            <ul className="flex flex-col gap-2">
-              <li><a href={WA_LINK} target="_blank" rel="noreferrer" className="hover:text-[#F5A623] transition-colors">📱 {PHONE}</a></li>
-              <li><a href={`mailto:${EMAIL}`} className="hover:text-[#F5A623] transition-colors">✉️ {EMAIL}</a></li>
+            <h4 className="text-[#F5A623] font-bold mb-4 uppercase tracking-wider text-xs">Contato</h4>
+            <ul className="flex flex-col gap-3">
+              <li><a href={WA_LINK} target="_blank" rel="noreferrer" className="text-blue-200 hover:text-white transition-colors">📱 {PHONE}</a></li>
+              <li><a href={`mailto:${EMAIL}`} className="text-blue-200 hover:text-white transition-colors">✉️ {EMAIL}</a></li>
             </ul>
           </div>
         </div>
-        <div className="text-center text-gray-600 text-xs mt-8">
-          © {new Date().getFullYear()} S&P Energia Solar. Todos os direitos reservados.
+        <div className="max-w-6xl mx-auto px-4 mt-10 pt-6 border-t border-[#1B4FBF]/30 flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-blue-300 text-xs">© {new Date().getFullYear()} S&P Energia Solar. Todos os direitos reservados.</p>
+          <p className="text-blue-400 text-xs">Desenvolvido por <span className="text-[#F5A623]">Melch Tecnologia</span></p>
         </div>
       </footer>
 
