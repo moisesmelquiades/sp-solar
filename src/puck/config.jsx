@@ -62,23 +62,21 @@ export const DEFAULT_PUCK_DATA = {
 function HeroComponent({ badge, titulo, destaque, subtitulo, botao }) {
   const parts = titulo.split(destaque)
   return (
-    <section className="relative bg-[#0A1628] min-h-screen flex items-center pt-20">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1B4FBF]/40 to-transparent" />
-      <div className="relative max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <p className="text-[#F5A623] font-semibold tracking-widest text-sm uppercase mb-4">{badge}</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
-            {parts[0]}<span className="text-[#F5A623]">{destaque}</span>{parts[1]}
-          </h1>
-          <p className="text-gray-300 text-lg mb-8 leading-relaxed">{subtitulo}</p>
-          <a href={WA_BASE} target="_blank" rel="noreferrer"
-            className="bg-[#F5A623] hover:bg-yellow-500 text-white font-bold px-8 py-4 rounded-full text-lg transition-all shadow-lg inline-block">
-            💬 {botao}
-          </a>
-        </div>
-        <div className="hidden md:block rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/10">
-          <img src="/images/proj1.jpg" alt="Projeto S&P Solar" className="w-full h-96 object-cover" />
-        </div>
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <div className="absolute inset-0">
+        <img src="/images/banner.png" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[#0A1628]/75" />
+      </div>
+      <div className="relative max-w-6xl mx-auto px-4 py-24 text-center">
+        <p className="text-[#F5A623] font-semibold tracking-widest text-sm uppercase mb-4">{badge}</p>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+          {parts[0]}<span className="text-[#F5A623]">{destaque}</span>{parts[1]}
+        </h1>
+        <p className="text-gray-200 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">{subtitulo}</p>
+        <a href={WA_BASE} target="_blank" rel="noreferrer"
+          className="bg-[#F5A623] hover:bg-yellow-500 text-white font-bold px-10 py-5 rounded-full text-xl transition-all shadow-2xl inline-block">
+          💬 {botao}
+        </a>
       </div>
     </section>
   )
