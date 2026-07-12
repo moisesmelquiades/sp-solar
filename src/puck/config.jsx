@@ -21,9 +21,8 @@ export const DEFAULT_PUCK_DATA = {
       props: {
         id: 'stats-1',
         items: [
-          { num: '+50', label: 'Projetos instalados' },
+          { num: '+8.000', label: 'Projetos instalados' },
           { num: '+200 kW', label: 'Potência instalada' },
-          { num: '+50', label: 'Clientes satisfeitos' },
           { num: '100%', label: 'Sistemas homologados' },
         ],
       },
@@ -104,10 +103,9 @@ function HeroComponent({ badge, titulo, destaque, subtitulo, botao }) {
 
 // ===== STATS =====
 const STATS_PARSED = [
-  { prefix: '+', target: 50,  suffix: '',    label: 'Projetos instalados' },
-  { prefix: '+', target: 200, suffix: ' kW', label: 'Potência instalada' },
-  { prefix: '+', target: 50,  suffix: '',    label: 'Clientes satisfeitos' },
-  { prefix: '',  target: 100, suffix: '%',   label: 'Sistemas homologados' },
+  { prefix: '+', target: 8000, suffix: '',    label: 'Projetos instalados' },
+  { prefix: '+', target: 200,  suffix: ' kW', label: 'Potência instalada' },
+  { prefix: '',  target: 100,  suffix: '%',   label: 'Sistemas homologados' },
 ]
 
 function StatsComponent() {
@@ -136,11 +134,11 @@ function StatsComponent() {
 
   return (
     <section style={{ background: '#0049B0', padding: 0 }}>
-      <div ref={ref} style={{ maxWidth: '1180px', margin: '0 auto', padding: 'clamp(40px,5.5vw,64px) max(20px,4vw)', display: 'grid', gap: 0 }} className="grid-cols-2 md:grid-cols-4">
+      <div ref={ref} style={{ maxWidth: '1180px', margin: '0 auto', padding: 'clamp(40px,5.5vw,64px) max(20px,4vw)', display: 'grid', gap: 0 }} className="grid-cols-1 md:grid-cols-3">
         {STATS_PARSED.map((p, i) => (
           <div key={i} style={{ padding: '6px max(10px,2.5vw)', borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,.22)' }}>
             <div style={{ fontFamily: "'Instrument Serif', serif", fontSize: 'clamp(42px,4.6vw,66px)', lineHeight: 1, color: '#FFFFFF', letterSpacing: '-1px' }}>
-              {p.prefix}{cur ? cur[i] : p.target}{p.suffix}
+              {p.prefix}{(cur ? cur[i] : p.target).toLocaleString('pt-BR')}{p.suffix}
             </div>
             <div style={{ fontFamily: "'Space Mono', monospace", fontSize: '11.5px', letterSpacing: '2px', textTransform: 'uppercase', color: 'rgba(255,255,255,.74)', marginTop: '14px' }}>
               {p.label}
