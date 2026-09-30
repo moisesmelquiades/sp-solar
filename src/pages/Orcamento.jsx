@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 const API = 'https://zceqvrjtfnliavrzczjt.supabase.co/functions/v1/orcamento-site'
-const WA_NUMERO = '558194125508'
+const WA_NUMERO = '558173447018' // reserva; o servidor devolve o número do CRM
 
 const NAVY = '#08183D'
 const AMBER = '#FEB000'
@@ -115,7 +115,7 @@ export default function Orcamento() {
         acao: 'enviar', modo, valor, nome, whatsapp: zap, optin: true, hp: isca,
         tempo_ms: Date.now() - formVisivelEm.current, origem: origemDaVisita(),
       })
-      const url = `https://wa.me/${WA_NUMERO}?text=${encodeURIComponent(d.mensagem)}`
+      const url = `https://wa.me/${d.whatsapp_destino || WA_NUMERO}?text=${encodeURIComponent(d.mensagem)}`
       setEnviado({ codigo: d.codigo, url })
       if (janela) janela.location.href = url
       else window.location.href = url
