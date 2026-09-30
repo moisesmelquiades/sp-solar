@@ -177,9 +177,6 @@ export default function Orcamento() {
               onChange={e => setValor(e.target.value.replace(/[^\d.,]/g, ''))}
               placeholder={modoAtual.placeholder} style={{ ...campo, borderRadius: '0 12px 12px 0' }} />
           </div>
-          <p style={{ fontSize: '13.5px', color: SOFT, lineHeight: 1.55, margin: '0 0 24px' }}>
-            Somamos uma folga de cerca de 80 kWh ao seu consumo para o sistema não trabalhar no limite.
-          </p>
 
           {erro && <p role="alert" style={{ color: '#FFB4A8', fontSize: '15px', margin: '0 0 16px' }}>{erro}</p>}
 
@@ -199,8 +196,7 @@ export default function Orcamento() {
               </div>
             </div>
             <p style={{ fontSize: '14px', lineHeight: 1.6, color: SOFT, margin: '28px 0 0' }}>
-              Base do cálculo: consumo de {fmt(r.consumo_kwh)} kWh{r.modo === 'valor' ? ` (conta de R$ ${fmt(r.valor_informado)})` : ''} + folga de {r.folga_kwh} kWh.
-              É uma estimativa inicial; o projeto final depende da visita técnica.
+              Base do cálculo: consumo de {fmt(r.consumo_kwh)} kWh{r.modo === 'valor' ? ` (conta de R$ ${fmt(r.valor_informado)})` : ''}               É uma estimativa inicial; o projeto final depende da visita técnica.
             </p>
 
             {/* ---- formulário ---- */}
