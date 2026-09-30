@@ -145,9 +145,6 @@ export default function Orcamento() {
           width="1774" height="887" fetchPriority="high"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '78% 62%', display: 'block' }} />
         <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(8,24,61,.28) 0%, rgba(8,24,61,0) 35%, rgba(8,24,61,.55) 78%, ${NAVY} 100%)` }} />
-        <span style={{ position: 'absolute', left: 'max(20px,4vw)', bottom: '14px', fontFamily: "'Space Mono', monospace", fontSize: '11px', letterSpacing: '2px', color: 'rgba(233,240,250,.7)', textTransform: 'uppercase' }}>
-          Exemplo de kit solar
-        </span>
       </div>
 
       <main style={{ maxWidth: '760px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) max(20px,4vw) 120px' }}>
