@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom'
 import { Render } from '@measured/puck'
 import '@measured/puck/puck.css'
 import { pb, getSiteAtivo, getPageData } from './lib/pocketbase'
@@ -7,6 +7,9 @@ import { puckConfig, DEFAULT_PUCK_DATA } from './puck/config'
 import Login from './pages/Login'
 import Admin from './pages/Admin'
 import PageEditor from './pages/PageEditor'
+import PoliticaPrivacidade from './pages/PoliticaPrivacidade'
+import TermosServico from './pages/TermosServico'
+import Orcamento from './pages/Orcamento'
 
 const WA_LINK = 'https://wa.me/558194125508?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20energia%20solar!'
 const PHONE = '+55 81 9412-5508'
@@ -101,7 +104,7 @@ function Site() {
             <img src="/images/logo-white.png" alt="S&P Energia Solar" style={{ height: '76px', width: 'auto', display: 'block' }} />
           </a>
           <nav className="hidden md:flex" style={{ alignItems: 'center', gap: '38px' }}>
-            {[['#diferenciais','Diferenciais'],['#como-funciona','Como funciona'],['#projetos','Projetos'],['#faq','FAQ']].map(([href, label]) => (
+            {[['#diferenciais','Diferenciais'],['#como-funciona','Como funciona'],['#projetos','Projetos'],['/orcamento','Orçamento'],['#faq','FAQ']].map(([href, label]) => (
               <a key={href} href={href} style={{ fontSize: '14px', fontWeight: 500, color: 'rgba(233,240,250,.82)', textDecoration: 'none', letterSpacing: '.2px' }}>{label}</a>
             ))}
           </nav>
@@ -117,7 +120,7 @@ function Site() {
         {menuOpen && (
           <div className="md:hidden" style={{ background: 'rgba(6,16,40,.96)', borderTop: '1px solid rgba(233,240,250,.1)', padding: '16px 40px 24px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {[['#diferenciais','Diferenciais'],['#como-funciona','Como funciona'],['#projetos','Projetos'],['#faq','FAQ']].map(([href, label]) => (
+              {[['#diferenciais','Diferenciais'],['#como-funciona','Como funciona'],['#projetos','Projetos'],['/orcamento','Orçamento'],['#faq','FAQ']].map(([href, label]) => (
                 <a key={href} href={href} onClick={() => setMenuOpen(false)} style={{ fontSize: '15px', color: 'rgba(233,240,250,.82)', textDecoration: 'none' }}>{label}</a>
               ))}
               <a href={WA_LINK} target="_blank" rel="noreferrer" style={{ background: '#FEB000', color: '#08183D', fontWeight: 700, fontSize: '14px', padding: '12px 22px', borderRadius: '100px', textDecoration: 'none', textAlign: 'center', marginTop: '8px' }}>
@@ -232,7 +235,7 @@ function Site() {
           <div>
             <h4 style={{ fontFamily: "'Space Mono', monospace", fontSize: '11px', letterSpacing: '2px', color: 'rgba(233,240,250,.5)', textTransform: 'uppercase', margin: '0 0 20px' }}>Navegação</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '13px' }}>
-              {[['#diferenciais','Diferenciais'],['#como-funciona','Como funciona'],['#projetos','Projetos'],['#faq','FAQ']].map(([href, label]) => (
+              {[['#diferenciais','Diferenciais'],['#como-funciona','Como funciona'],['#projetos','Projetos'],['/orcamento','Orçamento'],['#faq','FAQ']].map(([href, label]) => (
                 <li key={href}><a href={href} style={{ fontSize: '15px', color: 'rgba(233,240,250,.78)', textDecoration: 'none' }}>{label}</a></li>
               ))}
             </ul>
@@ -248,6 +251,10 @@ function Site() {
         </div>
         <div style={{ maxWidth: '1180px', margin: '48px auto 0', padding: '24px max(20px,4vw) 0', borderTop: '1px solid rgba(233,240,250,.1)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
           <span style={{ fontSize: '12.5px', color: 'rgba(233,240,250,.45)' }}>© {new Date().getFullYear()} S&P Energia Solar. Todos os direitos reservados.</span>
+          <div style={{ display: 'flex', gap: '18px' }}>
+            <Link to="/privacidade" style={{ fontSize: '12.5px', color: 'rgba(233,240,250,.45)', textDecoration: 'none' }}>Política de Privacidade</Link>
+            <Link to="/termos" style={{ fontSize: '12.5px', color: 'rgba(233,240,250,.45)', textDecoration: 'none' }}>Termos de Serviço</Link>
+          </div>
           <span style={{ fontSize: '12.5px', color: 'rgba(233,240,250,.45)' }}>Desenvolvido por <span style={{ color: '#FEB000' }}>Melch Tecnologia</span></span>
         </div>
       </footer>
@@ -272,6 +279,9 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Site />} />
+        <Route path="/orcamento" element={<Orcamento />} />
+        <Route path="/privacidade" element={<PoliticaPrivacidade />} />
+        <Route path="/termos" element={<TermosServico />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
         <Route path="/admin/paginas" element={<ProtectedRoute><PageEditor /></ProtectedRoute>} />
