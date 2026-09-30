@@ -196,7 +196,7 @@ export default function Orcamento() {
               </div>
             </div>
             <p style={{ fontSize: '14px', lineHeight: 1.6, color: SOFT, margin: '28px 0 0' }}>
-              Base do cálculo: consumo de {fmt(r.consumo_kwh)} kWh{r.modo === 'valor' ? ` (conta de R$ ${fmt(r.valor_informado)})` : ''}               É uma estimativa inicial; o projeto final depende da visita técnica.
+              Base do cálculo: consumo de {fmt(r.consumo_kwh)} kWh{r.modo === 'valor' ? ` (conta de R$ ${fmt(r.valor_informado)})` : ''}. É uma estimativa inicial; o projeto final depende da visita técnica.
             </p>
 
             {/* ---- formulário ---- */}
