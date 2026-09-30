@@ -138,7 +138,19 @@ export default function Orcamento() {
         </div>
       </header>
 
-      <main style={{ maxWidth: '760px', margin: '0 auto', padding: 'clamp(40px,8vw,90px) max(20px,4vw) 120px' }}>
+      {/* Imagem de topo: kit solar. object-position puxa pra direita, onde ficam inversor e cabos,
+          pra o corte do celular não perder o kit. */}
+      <div style={{ position: 'relative', width: '100%', height: 'clamp(210px,27vw,380px)', overflow: 'hidden', background: '#0B2150' }}>
+        <img src="/images/kit-solar.jpg" alt="Kit solar: placas, inversor, cabos e quadro de proteção"
+          width="1774" height="887" fetchPriority="high"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '78% 62%', display: 'block' }} />
+        <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, rgba(8,24,61,.28) 0%, rgba(8,24,61,0) 35%, rgba(8,24,61,.55) 78%, ${NAVY} 100%)` }} />
+        <span style={{ position: 'absolute', left: 'max(20px,4vw)', bottom: '14px', fontFamily: "'Space Mono', monospace", fontSize: '11px', letterSpacing: '2px', color: 'rgba(233,240,250,.7)', textTransform: 'uppercase' }}>
+          Exemplo de kit solar
+        </span>
+      </div>
+
+      <main style={{ maxWidth: '760px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) max(20px,4vw) 120px' }}>
         <Rotulo>Orçamento</Rotulo>
         <h1 style={{ fontFamily: "'Instrument Serif', serif", fontWeight: 400, fontSize: 'clamp(40px,6vw,64px)', lineHeight: 1.04, margin: '0 0 20px', letterSpacing: '-.6px' }}>
           Descubra o sistema solar <span style={{ color: AMBER, fontStyle: 'italic' }}>ideal</span> para você
