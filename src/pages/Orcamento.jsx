@@ -90,6 +90,7 @@ export default function Orcamento() {
     try {
       const d = await chamar({ acao: 'calcular', modo, valor })
       setDados(d)
+      window.dataLayer?.push({ event: 'orcamento_calculado', modo: modo === 'kwh' ? 'consumo_kwh' : 'valor_conta' })
       formVisivelEm.current = Date.now()
       setTimeout(() => resultadoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60)
     } catch (err) {
@@ -115,6 +116,8 @@ export default function Orcamento() {
         acao: 'enviar', modo, valor, nome, whatsapp: zap, optin: true, hp: isca,
         tempo_ms: Date.now() - formVisivelEm.current, origem: origemDaVisita(),
       })
+      // Antes de redirecionar: se a aba sair do site, o evento se perde
+      window.dataLayer?.push({ event: 'lead_orcamento' })
       const url = `https://wa.me/${d.whatsapp_destino || WA_NUMERO}?text=${encodeURIComponent(d.mensagem)}`
       setEnviado({ codigo: d.codigo, url })
       if (janela) janela.location.href = url
