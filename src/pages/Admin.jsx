@@ -110,7 +110,7 @@ export default function Admin() {
               Conectando você a um futuro mais limpo.
             </p>
             <div className="mt-4 text-sm text-gray-500 flex flex-col gap-1">
-              <span>📱 +55 81 9412-5508</span>
+              <span>📱 +55 81 8453-1086</span>
               <span>✉️ midiaspsolar@gmail.com</span>
             </div>
           </div>

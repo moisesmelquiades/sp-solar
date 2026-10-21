@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 const API = 'https://zceqvrjtfnliavrzczjt.supabase.co/functions/v1/orcamento-site'
-const WA_NUMERO = '558173447018' // reserva; o servidor devolve o número do CRM
+const WA_NUMERO = '558184531086' // reserva; o servidor devolve o número do CRM
 
 const NAVY = '#08183D'
 const AMBER = '#FEB000'

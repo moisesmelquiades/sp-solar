@@ -11,8 +11,8 @@ import PoliticaPrivacidade from './pages/PoliticaPrivacidade'
 import TermosServico from './pages/TermosServico'
 import Orcamento from './pages/Orcamento'
 
-const WA_LINK = 'https://wa.me/558194125508?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20energia%20solar!'
-const PHONE = '+55 81 9412-5508'
+const WA_LINK = 'https://wa.me/558184531086?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20energia%20solar!'
+const PHONE = '+55 81 8453-1086'
 const EMAIL = 'midiaspsolar@gmail.com'
 
 const passos = [
