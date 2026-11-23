@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reconectar WhatsApp — S&P Solar</title>
+<style>
+  body { font-family: sans-serif; background:#08183D; color:#EAF0F8; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px; text-align:center; }
+  button { background:#FEB000; color:#08183D; font-weight:700; font-size:16px; padding:16px 32px; border-radius:100px; border:none; cursor:pointer; margin-top:24px; }
+  button:disabled { opacity:.5; cursor:default; }
+  pre { background:#05122E; color:#9CD; padding:16px; border-radius:8px; max-width:640px; overflow:auto; text-align:left; margin-top:24px; font-size:12px; }
+  #status { margin-top:16px; font-size:14px; color:rgba(233,240,250,.7); }
+</style>
+</head>
+<body>
+  <h1>Reconectar número da S&amp;P Solar</h1>
+  <p>Clique no botão, entre com a conta Facebook admin do Business Manager, e siga o fluxo. Isso reconecta o número <strong>+55 81 7344-7018</strong> mantendo o app do celular (coexistência).</p>
+  <button id="btn" disabled>Carregando SDK...</button>
+  <div id="status"></div>
+  <pre id="out" style="display:none"></pre>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({ appId: '965397075990626', autoLogAppEvents: true, xfbml: true, version: 'v21.0' });
+    document.getElementById('btn').disabled = false;
+    document.getElementById('btn').textContent = 'Conectar WhatsApp';
+    document.getElementById('status').textContent = 'SDK pronto.';
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/pt_BR/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+  window.addEventListener('message', function(event) {
+    if (!event.origin.endsWith('facebook.com')) return;
+    try {
+      var data = JSON.parse(event.data);
+      if (data.type === 'WA_EMBEDDED_SIGNUP') {
+        document.getElementById('out').style.display = 'block';
+        document.getElementById('out').textContent = 'Evento do signup:\n' + JSON.stringify(data, null, 2);
+      }
+    } catch (e) {}
+  });
+
+  function fbLoginCallback(response) {
+    var out = document.getElementById('out');
+    out.style.display = 'block';
+    if (response.authResponse) {
+      document.getElementById('status').textContent = 'Login concluído! Veja o code abaixo.';
+      out.textContent = 'code (authorization code):\n' + response.authResponse.code + '\n\nResposta completa:\n' + JSON.stringify(response, null, 2);
+    } else {
+      document.getElementById('status').textContent = 'Não concluído ou cancelado.';
+      out.textContent = JSON.stringify(response, null, 2);
+    }
+  }
+
+  document.getElementById('btn').addEventListener('click', function() {
+    FB.login(fbLoginCallback, {
+      config_id: '1740595657199807',
+      response_type: 'code',
+      override_default_response_type: true,
+      extras: {
+        setup: {},
+        featureType: 'whatsapp_business_app_onboarding',
+        sessionInfoVersion: '3'
+      }
+    });
+  });
+</script>
+</body>
+</html>
